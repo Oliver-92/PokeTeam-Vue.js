@@ -30,8 +30,14 @@ export const usePokeTeam = defineStore('team', () => {
   }
 
   function clearTeam() {
-    team.value = [];
-    alert("Your team has been cleared!");
+    if (team.value.length === 0) {
+      alert("Your team is already empty!");
+      return;
+    } else {
+      team.value = [];
+      alert("Your team has been cleared!");
+    }
+
   }
   return { team, addPokemon, removePokemon, inTeam, clearTeam }
 })

@@ -16,9 +16,16 @@ const { team, loading } = storeToRefs(pokeTeam);
         <h2>Collection</h2>
         <div class="container" v-if="team.length > 0">
             <ShowPoke v-for="(pokemon, index) in team" :key="index" :pokemon="pokemon" :is-loading="loading"
-                :inTeam="true" />
+                :inTeam="true" :style="{
+                    '--max-width-card' : '230px',
+                    '--padding-card' : '5px 10px',
+                    '--max-width-img' : '160px',
+                    '--width-details' : '70px',
+                    '--font-size' : '0.75rem',
+                    '--margin' : '5px auto'
+                }" />
         </div>
-        <button @click="pokeTeam.clearTeam">Clear collection</button>
+        <button class="clear-button" @click="pokeTeam.clearTeam">Clear collection</button>
     </section>
 </template>
 
@@ -26,7 +33,7 @@ const { team, loading } = storeToRefs(pokeTeam);
 section {
     margin: 20px auto;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 800px;
     width: 90%;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -44,5 +51,20 @@ section {
 div {
     display: flex;
     justify-content: center;
+}
+
+.clear-button {
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: tomato;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background-color: #f84f31;
 }
 </style>
