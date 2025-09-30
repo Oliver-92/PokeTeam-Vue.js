@@ -12,6 +12,8 @@ Este proyecto permite buscar pokémon, agregarlos a un equipo personalizado (má
 ![PokeTeam](/public/screenshot.jpg)
 
 
+![PokeTeam](/public/screenshot2.jpg)
+
 ## Estructura del Proyecto
 
 ```
