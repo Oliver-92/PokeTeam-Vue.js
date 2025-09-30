@@ -11,6 +11,7 @@ Este proyecto permite buscar pokémon, agregarlos a un equipo personalizado (má
 
 ![PokeTeam](/public/screenshot.jpg)
 
+
 ## Estructura del Proyecto
 
 ```
@@ -20,14 +21,21 @@ src/
 	components/
 		CardPokeTeam.vue        # Tarjeta visual de cada pokémon en el equipo
 		PoKeTeam.vue            # Vista principal del equipo
-		PokeTeamDetail.vue      # Detalle y gestión del equipo
+		PokeTeamCollection.vue  # Colección y paginación de todos los pokémon
 		SearchPokemon.vue       # Buscador de pokémon
-		ShowPoke.vue            # Detalle de pokémon individual y acciones
+		ShowPoke.vue            # Card de detalle de pokémon individual (con tipos y colores)
 		ShowPokemon.vue         # Ejemplo básico de visualización
+	pages/
+		AllPokemonsView.vue     # Vista paginada de todos los pokémon
 	composables/
-		usePokemonSearch.js     # Composable para búsqueda y consulta a la API
+		usePokemonSearch.js     # Composable para búsqueda individual
+		usePokemonsAll.js       # Composable para obtener y paginar todos los pokémon
 	stores/
-		usePokeTeam.js          # Store Pinia para el equipo
+		usePokeTeam.js          # Store Pinia para el equipo y gestión de acciones
+	assets/
+		pokemon-types.css       # Colores reutilizables para los tipos de pokémon
+public/
+	screenshot.jpg            # Captura de pantalla de la app
 ```
 
 ## Funcionalidades
