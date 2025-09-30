@@ -1,5 +1,7 @@
 <script setup>
 import { usePokeTeam } from "@/stores/usePokeTeam";
+import '@/assets/pokemon-types.css';
+import Loader from './Loader.vue';
 
 // Componente para mostrar la info de un pokemon
 
@@ -23,14 +25,23 @@ defineProps({
 
 <template>
   <section class="card">
-    <div v-if="isLoading">Cargando...</div>
+    <div v-if="isLoading"><Loader /></div>
     <div v-else>
       <div class="header">
         <h2>{{ pokemon.name }}</h2>
         <p># {{ pokemon.id }}</p>
       </div>
       <img class="card-img" :src="pokemon.image" :alt="pokemon.name" />
-      <p class="types"> {{ pokemon.types.join(' ') }} </p>
+      <div class="types">
+        <span
+          v-for="type in pokemon.types"
+          :key="type"
+          :class="['type-label', type]"
+          style="display: inline-block; margin: 0 4px; padding: 4px 12px; border-radius: 12px; color: #fff; font-size: 0.95em; text-transform: capitalize;"
+        >
+          {{ type }}
+        </span>
+      </div>
       <div class="details">
         <p>Altura: {{ (pokemon.height / 10).toFixed(1) }}m</p>
         <p>Peso: {{ (pokemon.weight / 10).toFixed(1) }}kg</p>

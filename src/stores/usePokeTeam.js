@@ -19,8 +19,8 @@ export const usePokeTeam = defineStore('team', () => {
     console.log(team.value)
   }
   function removePokemon(pokemon) {
-    alert(`${pokemon.name} removed from your team!`)
     team.value = team.value.filter(p => p.id !== pokemon.id)
+    alert(`${pokemon.name} removed from your team!`)
     console.log(team.value)
   }
 
@@ -31,13 +31,15 @@ export const usePokeTeam = defineStore('team', () => {
 
   function clearTeam() {
     if (team.value.length === 0) {
-      alert("Your team is already empty!");
+      alert("Your team is already empty.");
       return;
     } else {
+      const confirmed = window.confirm("Are you sure you want to clear your team?");
+      if (!confirmed) return;
       team.value = [];
       alert("Your team has been cleared!");
     }
-
   }
+
   return { team, addPokemon, removePokemon, inTeam, clearTeam }
 })

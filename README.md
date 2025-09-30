@@ -61,6 +61,15 @@ npm run build
 - [Vite](https://vitejs.dev/)
 - [Pinia](https://pinia.vuejs.org/)
 
+
+## Actualizaciones recientes
+
+- Se agregó paginación en la vista de todos los pokémon (máx. 14 por página).
+- Ahora se muestran los tipos, altura y peso de cada pokémon en las cards.
+- Los tipos de pokémon se visualizan con colores personalizados reutilizables mediante clases CSS.
+- Mejoras en el manejo del equipo: confirmación al limpiar el equipo y mensajes de alerta más claros.
+- Optimización del composable para listar todos los pokémon y obtener detalles completos desde la API.
+
 ## Recomendaciones
 
 Usa [VSCode](https://code.visualstudio.com/) con la extensión [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) para una mejor experiencia de desarrollo.

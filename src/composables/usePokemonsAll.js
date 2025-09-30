@@ -10,14 +10,10 @@ export function usePokemonsAll() {
     loading.value = true;
     error.value = null;
     try {
-      // Obtener la lista de todos los pokémon (limit máximo actual: 1302)
       const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1302");
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
-      // data.results es un array con { name, url }
-      // Para cada pokémon, obtener detalles (height, weight, types)
       const results = data.results;
-      // Limitar la cantidad si es necesario para pruebas: results.slice(0, 50)
       const detailedPokemons = await Promise.all(
         results.map(async (poke) => {
           try {
@@ -34,7 +30,6 @@ export function usePokemonsAll() {
               weight: pokeData.weight,
             };
           } catch (e) {
-            // Si falla, devolver datos mínimos
             const id = poke.url.split("/").filter(Boolean).pop();
             return {
               name: poke.name,
@@ -56,7 +51,6 @@ export function usePokemonsAll() {
     }
   }
 
-  // Llamar automáticamente al cargar el composable
   fetchAllPokemons();
 
   return { pokemons, loading, error };

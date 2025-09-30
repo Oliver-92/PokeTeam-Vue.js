@@ -5,6 +5,8 @@ import ShowPoke from '@/components/ShowPoke.vue';
 import { usePokemonsAll } from '@/composables/usePokemonsAll';
 import { usePokeTeam } from '@/stores/usePokeTeam';
 import { ref, computed } from 'vue';
+import Loader from '../components/Loader.vue';
+
 const { pokemons, loading, error } = usePokemonsAll();
 const { inTeam } = usePokeTeam();
 
@@ -26,10 +28,11 @@ function nextPage() {
 
 
 <template>
-    <h1>All Pokémons</h1>
+    
     <Navbar />
+    <h1>All Pokémons</h1>
         <section style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; padding: 10px;">
-                <div v-if="loading">Cargando pokémons...</div>
+                <div v-if="loading"><Loader /></div>
                 <div v-else-if="error">{{ error }}</div>
                 <template v-else>
                     <ShowPoke
@@ -50,6 +53,11 @@ function nextPage() {
 </template>
 
 <style>
+
+h1 {
+    text-align: center;
+    color: white;
+}
 
 span {
     color: white;
